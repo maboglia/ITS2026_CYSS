@@ -1,4 +1,3 @@
-use cyss2026;
 CREATE TABLE movies (
     id int PRIMARY KEY AUTO_INCREMENT,
     titolo VARCHAR(255) NOT NULL,

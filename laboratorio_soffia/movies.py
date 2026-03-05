@@ -5,7 +5,6 @@ with open("best-movies-2023-rt.json", "r", encoding="utf-8") as file:
 
 # print(type(movies))  # Output: <class 'list'>
 # print(type(movies[0]))  # Output: <class 'dict'>
-use_database = "use cyss2026;\n"
 
 query_tabella = """
 CREATE TABLE movies (
@@ -17,7 +16,6 @@ CREATE TABLE movies (
 );
 """
 with open("query_movies.sql", "w", encoding="utf-8") as file:
-    file.write(use_database)
     file.write(query_tabella)
     print("Query per la creazione della tabella salvata in query_movies.sql")
 
