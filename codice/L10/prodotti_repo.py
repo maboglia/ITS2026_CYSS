@@ -1,4 +1,5 @@
 import connessione
+from prodotto import Prodotto
 
 class ProdottiRepo:
     def __init__(self):
@@ -6,14 +7,18 @@ class ProdottiRepo:
         self.cursor = self.conn.cursor()
 
     def get_prodotti(self):
-        query = "SELECT * FROM Prodotti"
+        query = "SELECT nome, prezzo_unitario FROM Prodotti"
         self.cursor.execute(query)
-        return self.cursor.fetchall()
+        prodottiDB = self.cursor.fetchall()
+        return [Prodotto(nome, prezzo_unitario) for nome, prezzo_unitario in prodottiDB]
 
     def get_prodotto_by_id(self, prodotto_id):
         query = "SELECT * FROM Prodotti WHERE id = %s"
         self.cursor.execute(query, (prodotto_id,))
-        return self.cursor.fetchone()
+        row = self.cursor.fetchone()
+        if row:
+            return Prodotto(row[1], row[2])
+        return None
 
     def add_prodotto(self, nome, prezzo):
         query = "INSERT INTO Prodotti (nome, prezzo) VALUES (%s, %s)"
