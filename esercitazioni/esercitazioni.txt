@@ -1,0 +1,12 @@
+Esercitazione Basi di dati
+Esercitazione di programmazione con python
+Esercitazione ETL - Automobili
+Esercitazione control-flow, data-structures, functions
+Esercitazione Python OOP - Geometria
+Esercitazione Python, mysql, OOP
+Esercitazione gestione richieste e risposte http con python
+Esercitzione py sql - Gestione magazzino
+Esercitazione gamification con python
+Esercitazione classi e moduli
+Masterpiece -  CYBER QUIZ ENGINE
+esercitazione quiz cyber python db
