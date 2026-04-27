@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+>
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>Prodotti</h1>
+
+        <table id="tabella_prodotti">
+            <tr>
+                <th>Nome prodotto</th>
+                <th>Prezzo unitario</th>
+                <th>Giacenza</th>
+            </tr>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+<script>
+
+const URL = 'http://127.0.0.1:5000/api/prodotti'
+
+fetch(URL)
+    .then(res => res.json())
+    .then(prodotti => {
+        for(prodotto of prodotti){
+        const TR = document.createElement('tr')
+        const TD1 = document.createElement('td')
+        const TD2 = document.createElement('td')
+        const TD3 = document.createElement('td')
+        TD1.textContent = prodotto.nome
+        TD2.textContent = prodotto.prezzo_unitario
+        TD3.textContent = prodotto.giacenza
+        
+        TR.appendChild(TD1)
+        TR.appendChild(TD2)
+        TR.appendChild(TD3)
+        document.querySelector('#tabella_prodotti tbody').appendChild(TR)
+        
+    }
+
+
+
+
+    })
+
+</script>
+
+</body>
+</html>
